@@ -11,7 +11,7 @@ A modular **Discord bot** written in Python using `discord.py`. It uses a **bot 
 * Uses **Discord Bot Token** (OAuth2 bot application)
 * **Prefix commands**: `r?[command]`
 * Modular cog-based architecture
-* Intended for **private testing environments** you own or have permission to manage
+* You dont need the perms - the bot does
 
 ---
 
@@ -19,7 +19,8 @@ A modular **Discord bot** written in Python using `discord.py`. It uses a **bot 
 
 * Python **3.8+**
 * `discord.py`
-* A **Discord Bot Application** with required intents enabled
+* `requirements.txt` installed (`pip install -r requirements.txt`)
+* A **Discord Bot Application** with required *(All for no bugs)* intents enabled
 
 ---
 
@@ -39,18 +40,19 @@ pip install -r requirements.txt
 ```
 
 3. **Create a Discord Bot**
-
-* Go to Discord Developer Portal
+*Make it look like legit bot*
+* Go to Discord *[Developer Portal](https://discord.com/developers/applications/)*
 * Create an application → Bot
 * Copy the **BOT TOKEN**
 * Enable **Server Members Intent** and **Message Content Intent**
 
 4. **Configure token**
+*You need bot token (not user!)*
 - Create token.json file
 - Paste this in: ```{"TOKEN": "YOUR_BOT_TOKEN"}```
 - Replace "YOUR_BOT_TOKEN" with your actual token
 
-> ❗ Never hardcode or publish your token.
+> ❗ Never send anyone or publish your token.
 
 5. **Run the bot**
 *Open terminal and paste this in*
@@ -174,5 +176,7 @@ Educational / demonstration use only.
 ---
 
 ## 🐍 Support and communication
+Feel free to dm me on these platforms:
 - [Discord](https://discord.com/users/903247584192241694)
 - [Instagram](https:instagram.com/tomase.k_)
+
