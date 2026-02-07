@@ -26,14 +26,14 @@ A modular **Discord bot** written in Python using `discord.py`. It uses a **bot 
 ## 🚀 Setup
 
 1. **Clone the repository**
-
+*Open terminal and paste this in*
 ```bash
 git clone https://github.com/ItzPopelka/raidbot.github.io.git
 cd raidbot.github.io
 ```
 
 2. **Install dependencies**
-
+*Open terminal and paste this in*
 ```bash
 pip install -r requirements.txt
 ```
@@ -45,23 +45,17 @@ pip install -r requirements.txt
 * Copy the **BOT TOKEN**
 * Enable **Server Members Intent** and **Message Content Intent**
 
-4. **Configure token (recommended: environment variable)**
-
-```bash
-export DISCORD_BOT_TOKEN=YOUR_BOT_TOKEN
-```
-
-Update `main.py`:
-
-```python
-await bot.start(os.getenv("DISCORD_BOT_TOKEN"))
-```
+4. **Configure token**
+- 1. Create token.json file
+- 2. Paste this in: ```{"TOKEN": "YOUR_BOT_TOKEN"}```
+- 3. Replace "YOUR_BOT_TOKEN" with your actual token
 
 > ❗ Never hardcode or publish your token.
 
 5. **Run the bot**
-
+*Open terminal and paste this in*
 ```bash
+cd raidbot.github.io
 python main.py
 ```
 
@@ -176,3 +170,9 @@ This repository is intended to showcase **Discord API automation techniques**, n
 ## 📄 License
 
 Educational / demonstration use only.
+
+---
+
+## 🐍 Support and communication
+- [Discord](https://discord.com/users/903247584192241694)
+- [Instagram](https:instagram.com/tomase.k_)
