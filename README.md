@@ -1,105 +1,178 @@
-# RaidBOT - ItzPopelka
+# RaidBOT
 
-> ⚠️ **Warning:** This bot is for **educational and demonstration purposes only**. Using it to disrupt Discord servers is a **violation of Discord's Terms of Service** and can result in the permanent termination of your account, bot, or server. The author assumes **no responsibility** for any misuse or damage caused by this software.
+> ⚠️ **Disclaimer**: This project is for **educational and demonstration purposes only**. Using it to disrupt Discord servers may violate **Discord Terms of Service** and local laws. The author assumes **no responsibility** for misuse.
 
-A feature-rich Discord selfbot written in Python, designed to demonstrate various automation and API functionalities. It operates via a user account, not a bot token.
+A modular **Discord bot** written in Python using `discord.py`. It uses a **bot token** (not a user/self token) and loads commands dynamically via cogs.
 
-## ⚙️ Features
+---
 
-| Category | Commands | Description |
-| :--- | :--- | :--- |
-| **🔧 Prefix** | `r?[command]` | Use before every command. |
-| **🛠️ Server Management** | `ban`, `purge`, `rename` | Mass moderation, channel cleaning, and member renaming. |
-| **💥 Disruption** | `spam`, `invite_spam`, `emoji_spam` | Channel spamming with various content types. |
-| **⚡ Nuke & Raid** | `full_nuke`, `channels`, `roles` | Extreme server alteration commands (destructive). |
-| **📊 Information** | `info`, `system` | Fetches user, server, or system details. |
-| **🔧 Utility** | `bypass`, `change_info`, `video`, `ip_logger`* | Additional utilities for profile, guild changes, etc. |
+## ✅ Key Points
 
-*Use of `ip_logger` is heavily discouraged and may be illegal.
+* Uses **Discord Bot Token** (OAuth2 bot application)
+* **Prefix commands**: `r?[command]`
+* Modular cog-based architecture
+* Intended for **private testing environments** you own or have permission to manage
 
-## 📁 Project Structure
+---
 
-```
-RaidBOT/
-├── 📁 assets/          # static resources (images, etc.)
-├── 📁 funcs/           # all command modules
-│   ├── ban.py
-│   ├── bypass.py
-│   ├── channels.py
-│   ├── change_info.py
-│   ├── emoji_spam.py
-│   ├── full_nuke.py
-│   ├── info.py
-│   ├── invite_spam.py
-│   ├── ip_logger.py
-│   ├── purge.py
-│   ├── rename.py
-│   ├── roles.py
-│   ├── spam.py
-│   ├── system.py
-│   └── video.py
-├── 📨 index.html       # ip logger web
-├── 🐍 bot.py           # main bot launcher and core
-├── 📄 requirements.txt # python dependencies
-└── 📄 README.md        # this file
+## 📦 Requirements
+
+* Python **3.8+**
+* `discord.py`
+* A **Discord Bot Application** with required intents enabled
+
+---
+
+## 🚀 Setup
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/ItzPopelka/raidbot.github.io.git
+cd raidbot.github.io
 ```
 
-## 🚀 Quick Start
+2. **Install dependencies**
 
-### Prerequisites
-- Dependencies `(requirements.txt)`
-- Python 3.8 or higher
-- A Discord bot accaunt
-- Basic understanding of python and command line
+```bash
+pip install -r requirements.txt
+```
 
-### Installation & Setup
+3. **Create a Discord Bot**
 
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/ItzPopelka/RaidBOT.git
-    cd RaidBOT
-    ```
+* Go to Discord Developer Portal
+* Create an application → Bot
+* Copy the **BOT TOKEN**
+* Enable **Server Members Intent** and **Message Content Intent**
 
-2.  **Install required dependencies:**
-    ```bash
-    pip install -r requirements.txt
-    ```
+4. **Configure token (recommended: environment variable)**
 
-3.  **Configure the bot:**
-    Open `bot.py` in a text editor and locate the `bot.run()` line at the bottom. Replace `'YOUR_USER_TOKEN_HERE'` with your actual Discord user token.
-    > **⚠️ Critical:** Never share this token. Anyone with it can control your account.
+```bash
+export DISCORD_BOT_TOKEN=YOUR_BOT_TOKEN
+```
 
-4.  **Run the bot:**
-    ```bash
-    python bot.py
-    ```
-    The bot will log in, load all command modules, and be ready in your Discord client.
-
-## ⚠️ Legal & Safety Disclaimer
-
-**This software is provided strictly for educational purposes.** Understanding how these tools work can help server administrators better defend against them.
-
-- **Violates Discord ToS:** Using a selfbot or automating a user account is explicitly forbidden by Discord.
-- **High Risk:** Your Discord account will very likely be **permanently banned** if detected.
-- **Ethical Use:** Only use this in private servers you own or with **explicit, written permission** from the server owner. Never use it to harass others or damage communities.
-
-The developer (`ItzPopelka`) is **not responsible** for any consequences resulting from the use of this code, including account termination, legal action, or damage to online communities.
-
-## 🔧 Command Loading
-
-The bot dynamically loads all valid `.py` modules from the `funcs/` directory. The core loading logic in `bot.py` is as follows:
+Update `main.py`:
 
 ```python
-import os
-async def load_extensions():
-    funcs_dir = "funcs"
-    extensions = [f[:-3] for f in os.listdir(funcs_dir) 
-                  if f.endswith('.py') and f != '__init__.py']
-    for ext in extensions:
-        try:
-            await bot.load_extension(f"{funcs_dir}.{ext}")
-            print(f"loaded: {ext}")
-        except Exception as e:
-            print(f"failed to load {ext}: {e}")
+await bot.start(os.getenv("DISCORD_BOT_TOKEN"))
 ```
 
+> ❗ Never hardcode or publish your token.
+
+5. **Run the bot**
+
+```bash
+python main.py
+```
+
+---
+
+## 🧩 Command Prefix
+
+All commands use the prefix:
+
+```
+r?[command]
+```
+
+Example:
+
+```
+r?info
+```
+
+---
+
+## 📚 Commands
+
+### Server / Moderation
+
+| Command             | Description                                | Permissions      |
+| ------------------- | ------------------------------------------ | ---------------- |
+| `ban_all`           | Bans all members except the command author | Ban Members      |
+| `rename_all <name>` | Renames all members                        | Manage Nicknames |
+| `purge_all`         | Purges messages in all text channels       | Manage Messages  |
+
+### Channels & Roles
+
+| Command    | Description                                      | Permissions     |
+| ---------- | ------------------------------------------------ | --------------- |
+| `channels` | Deletes all channels and recreates text channels | Manage Channels |
+| `roles`    | Deletes all roles and recreates roles            | Manage Roles    |
+
+### Server Info / Appearance
+
+| Command       | Aliases                   | Description                    |
+| ------------- | ------------------------- | ------------------------------ |
+| `change_info` | —                         | Changes server name and icon   |
+| `info`        | `i`, `serverinfo`, `list` | Prints server stats to console |
+
+### Spam / Media
+
+| Command       | Description                         | Permissions    |
+| ------------- | ----------------------------------- | -------------- |
+| `spam`        | Sends repeated messages             | —              |
+| `spam_ping`   | Repeatedly mentions everyone        | —              |
+| `emoji_spam`  | Deletes emojis and creates new ones | Manage Emojis  |
+| `invite_spam` | Creates multiple invite links       | Create Invites |
+| `spam_muzik1` | Repeated music link                 | —              |
+| `spam_muzik2` | Repeated music link                 | —              |
+| `spam_video`  | Repeated video link                 | —              |
+
+### Automation / Combined
+
+| Command     | Description                                     | Permissions   |
+| ----------- | ----------------------------------------------- | ------------- |
+| `full_nuke` | Runs multiple destructive commands sequentially | Administrator |
+| `bypass`    | Attempts to remove anti-raid bots/channels      | Administrator |
+
+### System
+
+| Command   | Description              |
+| --------- | ------------------------ |
+| `restart` | Restarts the bot process |
+| `stop`    | Stops the bot            |
+
+### Misc
+
+| Command | Description                                                       |
+| ------- | ----------------------------------------------------------------- |
+| `uwu`   | Sends a GIF                                                       |
+| `ip`    | Sends a redirect link (logging functionality present in web page) |
+
+---
+
+## 🗂 Project Structure
+
+```
+.
+├── funcs/                # Command cogs
+├── main.py               # Bot entry point
+├── index.html            # Web redirect / logger page
+├── pfp.webp              # Asset used by some commands
+└── README.md
+```
+
+---
+
+## ⚠️ Legal & Safety Notes
+
+* Use **only** in servers you own or have **explicit permission** to manage
+* Some commands are **destructive** by design
+* Logging or tracking users without consent may be **illegal** in some regions
+
+This repository is intended to showcase **Discord API automation techniques**, not to encourage abuse.
+
+---
+
+## 🧠 Development Notes
+
+* Commands are loaded dynamically from `funcs/`
+* Prefix is hardcoded as `r?`
+* Intents are set to `Intents.all()` — adjust for production
+
+---
+
+## 📄 License
+
+Educational / demonstration use only.
