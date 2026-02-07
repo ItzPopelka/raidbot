@@ -1,4 +1,4 @@
-# RaidBOT
+# RaidBOT - ItzPopelka
 
 > ⚠️ **Disclaimer**: This project is for **educational and demonstration purposes only**. Using it to disrupt Discord servers may violate **Discord Terms of Service** and local laws. The author assumes **no responsibility** for misuse.
 
@@ -79,7 +79,7 @@ r?info
 
 ## 📚 Commands
 
-### Server / Moderation
+### Server
 
 | Command             | Description                                | Permissions      |
 | ------------------- | ------------------------------------------ | ---------------- |

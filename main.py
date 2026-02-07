@@ -31,6 +31,10 @@ bot = commands.Bot(command_prefix='r?', intents=intents)
 # just a simple way to remove the default help command so you can create your own custom one later if you want
 bot.remove_command('help')
 
+# =======================================
+# ============= BOT EVENTS ==============
+# =======================================
+# on ready event is triggered when the bot has successfully connected to Discord and is ready to start receiving events and commands
 @bot.event
 async def on_ready():
     print(f"logged in as {bot.user} (ID: {bot.user.id})")
