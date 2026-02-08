@@ -167,6 +167,14 @@ This repository is intended to showcase **Discord API automation techniques**, n
 * Commands are loaded dynamically from `funcs/`
 * Prefix is hardcoded as `r?`
 * Intents are set to `Intents.all()` — adjust for production
+---
+
+## 🧪 Update
+### For Windows:
+- Just open `scripts/update.bat`
+### For Linux:
+- Run `chmod +x scripts/update.sh`
+- Run `./scripts/update.sh`
 
 ---
 
@@ -175,7 +183,6 @@ This repository is intended to showcase **Discord API automation techniques**, n
 Educational / demonstration use only. If you want to edit this, mention me in the README.
 
 ---
-
 ## 🐍 Support and communication
 Feel free to dm me on these platforms:
 - [Discord](https://discord.com/users/903247584192241694)

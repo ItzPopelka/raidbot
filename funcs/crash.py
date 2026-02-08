@@ -12,8 +12,7 @@ class CrashSpam(commands.Cog):
         except:
             pass
         for _ in range(100):
-            #TODO: add discord-crashing gif
-            await ctx.send("---")
+            await ctx.send("TODO: add discord-crashing gif")
 
 async def setup(bot):
     await bot.add_cog(CrashSpam(bot))
