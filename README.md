@@ -96,7 +96,7 @@ r?info
 | `channels` | Deletes all channels and recreates text channels | Manage Channels |
 | `roles`    | Deletes all roles and recreates roles            | Manage Roles    |
 
-### Server Info / Appearance
+### Server Info
 
 | Command       | Aliases                   | Description                    |
 | ------------- | ------------------------- | ------------------------------ |
@@ -108,6 +108,7 @@ r?info
 | Command       | Description                         | Permissions    |
 | ------------- | ----------------------------------- | -------------- |
 | `spam`        | Sends repeated messages             | —              |
+| `spam_crash`  | Spams gifs that crashes your dc     | —              |
 | `spam_ping`   | Repeatedly mentions everyone        | —              |
 | `emoji_spam`  | Deletes emojis and creates new ones | Manage Emojis  |
 | `invite_spam` | Creates multiple invite links       | Create Invites |

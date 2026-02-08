@@ -15,7 +15,7 @@ class Spam(commands.Cog):
             pass
         while True:
             await ctx.send(
-                "NIGGAS GETTING RAIDED BY POPELKA")
+                "NIGGAS GETTING RAIDED BY POPELKA\n||[BOT REPOSITORY](<https://github.com/ItzPopelka/raidbot.github.io>)||")
 
     @commands.command()
     async def spam_ping(self, ctx):
@@ -25,7 +25,7 @@ class Spam(commands.Cog):
             pass
         while True:
             await ctx.send(
-                "@everyone")
+                "@everyone\n||[BOT REPOSITORY](<https://github.com/ItzPopelka/raidbot.github.io>)||")
 
     @commands.command()
     @commands.has_permissions(manage_emojis=True)

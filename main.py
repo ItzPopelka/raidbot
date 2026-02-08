@@ -25,7 +25,7 @@ token = json.load(open("token.json", "r"))["TOKEN"]
 # intents are required for the bot to function properly, especially if you want to access certain events or data.
 intents = discord.Intents.all()
 
-# choose a command prefix for your bot (e.g., "r?" in this case + just make sure its not too common to avoid conflicts with other bots)
+# choose a command prefix for your bot (just make sure its not too common to avoid conflicts with other bots; it uses like "r?[command]")
 bot = commands.Bot(command_prefix='r?', intents=intents)
 
 # just a simple way to remove the default help command so you can create your own custom one later if you want
