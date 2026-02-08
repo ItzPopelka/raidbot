@@ -137,6 +137,7 @@ r?info
 | `uwu`   | Sends a GIF                                                                      |
 | `ip`    | Sends a redirect link (logging functionality present in web page)                |
 | `wb`    | Sends a list where are all webhooks in the server where the command was executed |
+| `crash` | Spams crash gif that you create (Ress is 15000x15000, you need good internet     |
 
 ---
 
