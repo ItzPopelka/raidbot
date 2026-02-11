@@ -9,7 +9,7 @@ class Info(commands.Cog):
 
     @commands.command()
     async def change_info(self,ctx):
-        ICON = "pfp.webp"
+        ICON = "assets/pfp.webp"
         try:
             await ctx.message.delete()
         except:
