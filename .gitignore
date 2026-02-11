@@ -2,3 +2,5 @@ token.json
 __pycache__/
 funcs/__pycache__/
 assets/crash.gif
+.vscode
+.idea
