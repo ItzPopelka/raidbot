@@ -50,9 +50,18 @@ async def on_ready():
 # just a semi-simple way to load all the command files in the "funcs" directory without having to import them manually one by one
 async def load_extensions():
     funcs_dir = "funcs"
+    
     extensions = [f[:-3] for f in os.listdir(funcs_dir)
                 if f.endswith('.py') and f != '__init__.py' and not f.startswith('__')]
-    
+
+    if "update" in extensions:
+        extensions.remove("update")
+        try:
+            await bot.load_extension(f"{funcs_dir}.update")
+            print("priority loaded: update")
+        except Exception as e:
+            print(f"critical error loading update: {e}")
+
     for ext in extensions:
         try:
             await bot.load_extension(f"{funcs_dir}.{ext}")
