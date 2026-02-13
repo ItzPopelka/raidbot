@@ -144,12 +144,29 @@ r?info
 ## 🗂 Project Structure
 
 ```
-.
-├── funcs/                # Command cogs
-├── main.py               # Bot entry point
-├── index.html            # Web redirect / logger page
-├── pfp.webp              # Asset used by some commands
-└── README.md
+├── 📁 assets
+│   └── 🖼️ pfp.webp
+├── 📁 funcs
+│   ├── 🐍 ban.py
+│   ├── 🐍 bypass.py
+│   ├── 🐍 channels.py
+│   ├── 🐍 crash.py
+│   ├── 🐍 full_nuke.py
+│   ├── 🐍 info.py
+│   ├── 🐍 purge.py
+│   ├── 🐍 rename.py
+│   ├── 🐍 roles.py
+│   ├── 🐍 spam.py
+│   ├── 🐍 system.py
+│   ├── 🐍 update.py
+│   ├── 🐍 uwu.py
+│   ├── 🐍 video.py
+│   └── 🐍 webhook.py
+├── 📁 scripts
+│   └── 🐍 crash-gif_maker.py
+├── 📝 README.md
+├── 🐍 main.py
+└── 📄 requirements.txt
 ```
 
 ---
@@ -172,11 +189,7 @@ This repository is intended to showcase **Discord API automation techniques**, n
 ---
 
 ## 🧪 Update
-### For Windows:
-- Just open `scripts/update.bat`
-### For Linux:
-- Run `chmod +x scripts/update.sh`
-- Run `./scripts/update.sh`
+- Just press `y/n` on the start-up
 
 ---
 
