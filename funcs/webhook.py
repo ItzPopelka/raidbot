@@ -23,6 +23,8 @@ class WebhookInfo(commands.Cog):
                 print(f"  Name {webhook.name}")
                 print(f"  ID: {webhook.id}")
                 print(f"  Channel: {webhook.channel.name if webhook.channel else 'Neznámý'}")
+                print(f"  URL: {webhook.url}")
+                print("-----------------------------------------")
         except discord.Forbidden:
             print("Bot doesnt have perms to see webhooks.")
         except Exception as e:
