@@ -9,7 +9,7 @@ import io
 API_URL = "https://api.github.com/repos/ItzPopelka/raidbot/commits/main"
 ZIP_URL = "https://github.com/ItzPopelka/raidbot/archive/refs/heads/main.zip"
 
-SAFE_FILES = ["token.json", ".gitignore", "old_version.zip", ".current_version", ".git/"]
+SAFE_FILES = ["token.json", ".gitignore", "old_version.zip", ".current_version", ".git"]
 VERSION_FILE = ".current_version"
 
 class Update(commands.Cog):
