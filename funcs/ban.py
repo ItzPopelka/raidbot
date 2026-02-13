@@ -24,7 +24,7 @@ class BanALL(commands.Cog):
                 if member == ctx.author:
                     continue
             
-                await member.ban(reason="popelka je boss")
+                await member.ban(reason="popelka is boss")
                 banned_count += 1
                 print(f"banned: {member.name}")
             

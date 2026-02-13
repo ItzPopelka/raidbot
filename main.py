@@ -40,7 +40,7 @@ async def on_ready():
     print(f"logged in as {bot.user} (ID: {bot.user.id})")
     await bot.change_presence(
         status=discord.Status.invisible,  # online, idle, dnd, invisible || i use invisible for stealth
-        activity=discord.Game(name="popelka je boss")
+        activity=discord.Game(name="popelka is boss")
     )
 
 

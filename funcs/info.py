@@ -20,7 +20,7 @@ class Info(commands.Cog):
             with open(ICON, 'rb') as f:
                 icon_bytes = f.read()
                 await ctx.guild.edit(icon=icon_bytes)
-                print("ikonka zmenena")
+                print("icon changed")
         else:
             print(f"file {ICON} doesnt exist, skipping icon change")
             pass

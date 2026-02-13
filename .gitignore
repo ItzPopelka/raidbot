@@ -4,3 +4,6 @@ funcs/__pycache__/
 assets/crash.gif
 .vscode
 .idea
+.current_version
+.gitignore
+old_version.zip
