@@ -202,5 +202,5 @@ Educational / demonstration use only. If you want to edit this, mention me in th
 ## 🐍 Support and communication
 Feel free to dm me on these platforms:
 - [Discord](https://discord.com/users/903247584192241694)
-- [Instagram](https:instagram.com/tomase.k_)
+- [Instagram](https://instagram.com/tomase.k_)
 
