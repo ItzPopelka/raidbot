@@ -2,7 +2,6 @@
 import discord
 from discord.ext.commands import *
 from discord.ext import commands
-import asyncio
 import os
 import json
 
