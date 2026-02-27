@@ -57,7 +57,7 @@ pip install -r requirements.txt
 5. **Run the bot**
 *Open terminal and paste this in*
 ```bash
-cd raidbot.github.io
+cd raidbot
 python main.py
 ```
 
