@@ -29,8 +29,8 @@ A modular **Discord bot** written in Python using `discord.py`. It uses a **bot 
 1. **Clone the repository**
 *Open terminal and paste this in*
 ```bash
-git clone https://github.com/ItzPopelka/raidbot.github.io.git
-cd raidbot.github.io
+git clone https://github.com/ItzPopelka/raidbot.git
+cd raidbot
 ```
 
 2. **Install dependencies**
